@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termo - Jogo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+
+        #game-area {
+            margin-top: 50px; /* Ajusta o espaço entre o menu e o jogo */
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .jogo {
+            display: grid;
+            grid-template-rows: repeat(5, 50px);
+            grid-gap: 10px;
+        }
+
+        .palavra {
+            display: grid;
+            grid-template-columns: repeat(5, 50px);
+            grid-gap: 10px;
+        }
+
+        .letter-box {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .gray { background-color: gray; }
+        .yellow { background-color: yellow; color: black; }
+        .green { background-color: green; }
+
+        label, input[type="text"], input[type="submit"] {
+            display: block;
+            margin: 10px auto;
+        }
+
+        input[type="submit"] {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <div class="letter-box green">.</div>
+        <p>Letra na Posição correta</p>
+        <div class="letter-box yellow">.</div>
+        <p>Letra na Posição incorreta</p>
+        <div class="letter-box gray">.</div>
+        <p>Letra inexistente</p>
+    </div>
+
+    <div id="game-area">
+        {{jogo}}
+    </div>
+
+    <form action="/chute" method="POST">
+        <label for="word">Digite um chute de palavra 5 letras:</label>
+        <input type="text" id="palavra" name="palavra" maxlength="5" minlength="5" required>
+        <input type="submit" value="Chutar">
+    </form>
+</body>
+</html>
