@@ -10,14 +10,10 @@ Para desenvolver este programa utilizei o Codespace disponibilizado no inicio do
 
 ### Passos para a execução na minha máquina (antes sem haskell - Ubuntu 22.04):
     1 - sudo apt install ghc
-
     2 - sudo apt install cabal-install (cabal update caso já possua o cabal)
-
     3 - cabal install --lib random scotty
     4 - cabal init
-
     5 - cabal build
-
     6 - runhaskell Web.hs
 
 #### Etapa 1:
