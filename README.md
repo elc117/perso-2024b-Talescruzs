@@ -6,14 +6,18 @@ Criar um jogo similar ao [Termo](<https://term.ooo/>).
 De forma resumida, o jogo consiste em um jogador possuir 5 tentativas de chute para acertar uma palavra sorteada.
 
 ## Desenvolvimento
-Para desenvolver este programa utilizei o Codespace disponibilizado no inicio do semestre, pois já estva com o haskell rodando corretamente. Desta forma o progresse na construção do código ficou no outro repositório.
+Para desenvolver este programa utilizei o Codespace disponibilizado no inicio do semestre, pois já estva com o haskell rodando corretamente. Desta forma o progresso na construção do código ficou no outro repositório.
 
-Passos para a execução na minha máquina (antes sem haskell - Ubuntu 22.04):
+### Passos para a execução na minha máquina (antes sem haskell - Ubuntu 22.04):
     1 - sudo apt install ghc
+
     2 - sudo apt install cabal-install (cabal update caso já possua o cabal)
+
     3 - cabal install --lib random scotty
     4 - cabal init
+
     5 - cabal build
+
     6 - runhaskell Web.hs
 
 #### Etapa 1:
@@ -37,7 +41,7 @@ verificaVitoria l = if(length(filter verificaInt l) == 0) then True else False
 ```
 
 #### Etapa 2:
-Posteriormente quis começar a parte do sorteio das palavras, juntamente com uma parte visual básica. Então precisei de funções que manipulavam arquivos. Nunca havia utilizado elas.
+Posteriormente quis começar a parte do sorteio das palavras, juntamente com uma parte visual básica. Então precisei de funções que manipulavam arquivos. Nunca havia utilizado elas antes.
 ``` hs
 inserirPalavra :: FilePath -> String -> IO ()
 inserirPalavra filePath palavra = do
@@ -209,7 +213,7 @@ sorteiaPalavra = do
     liftIO $ escreverPalavra "data/sorteada.txt" palavraString
 ```
 #### Problemas Encontrados
-Durante o desenvolvimento foram encotnrados muitos problemas de escrita ou leitura de arquivos que estavam abertos, isto até começar a utilizar o `hClose`. Também foi relativamente sofrido criar o html dinamicamente dentro de funções. 
+Durante o desenvolvimento foram encontrados muitos problemas de escrita ou leitura de arquivos que estavam abertos, isto até começar a utilizar o `hClose`. Também foi relativamente sofrido criar o html dinamicamente dentro de funções. 
 
 Um desafio relacionado à linguagem foi a tipagem das "saídas" das funções que interagem com arquivos, o IO() ou então ActionM(), que causaram confusão no desenvolvimento.
 
